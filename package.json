@@ -1,0 +1,13 @@
+{
+  "name": "arzo-journal-pro",
+  "version": "1.0.0",
+  "description": "ARZO Journal Pro - Trading Desktop App",
+  "scripts": {
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "release": "pwsh -ExecutionPolicy Bypass -File release.ps1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}
