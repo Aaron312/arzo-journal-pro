@@ -24,8 +24,8 @@ $Tag     = "v$Version"
 Write-Host "==> Publicando ARZO Journal Pro $Tag" -ForegroundColor Cyan
 
 # --- 2. Compilar firmado ---
-$env:TAURI_SIGNING_PRIVATE_KEY          = Get-Content "$KeyDir\arzo-journal.key" -Raw
-$env:TAURI_SIGNING_PRIVATE_KEY_PASSWORD = (Get-Content "$KeyDir\PASSWORD.txt" -Raw)
+$env:TAURI_SIGNING_PRIVATE_KEY          = (Get-Content "$KeyDir\arzo-journal.key" -Raw).Trim()
+$env:TAURI_SIGNING_PRIVATE_KEY_PASSWORD = (Get-Content "$KeyDir\PASSWORD.txt" -Raw).Trim()
 $env:PATH = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64;$env:USERPROFILE\.cargo\bin;$env:PATH"
 
 Write-Host "==> Compilando (firmado)..." -ForegroundColor Cyan
