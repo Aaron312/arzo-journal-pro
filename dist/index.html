@@ -304,11 +304,8 @@ textarea.fi{resize:vertical;min-height:72px;line-height:1.6;}
 .goal-pct{font-size:10px;font-family:var(--mono);margin-left:6px;}
 
 /* ── SHARE SWATCHES ── */
-.sc-swatch{width:26px;height:26px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s ease;flex-shrink:0;}
-.sc-swatch:hover{transform:scale(1.15);}
-.sc-swatch.active{border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,0.25),0 0 10px rgba(255,255,255,0.2);transform:scale(1.15);}
-.sc-theme{width:46px;height:26px;border-radius:7px;border:1.5px solid rgba(255,255,255,0.16);cursor:pointer;display:flex;align-items:center;padding:0 7px;transition:all .15s ease;flex-shrink:0;}
-.sc-theme span{width:15px;height:5px;border-radius:3px;display:block;}
+.sc-theme{width:52px;height:28px;border-radius:7px;border:1.5px solid rgba(255,255,255,0.16);cursor:pointer;display:flex;align-items:center;padding:0 8px;transition:all .15s ease;flex-shrink:0;}
+.sc-theme span{width:18px;height:6px;border-radius:3px;display:block;}
 .sc-theme:hover{transform:scale(1.08);}
 .sc-theme.active{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,0.22);transform:scale(1.08);}
 
@@ -970,31 +967,16 @@ textarea.fi{resize:vertical;min-height:72px;line-height:1.6;}
       <canvas id="shareCanvas" style="max-width:100%;display:block;"></canvas>
     </div>
   </div>
-  <!-- Card style (theme palettes) -->
-  <div style="margin-bottom:12px">
+  <!-- Card style (unified: background + accent) -->
+  <div style="margin-bottom:14px">
     <div style="font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:8px">Estilo de la tarjeta</div>
     <div style="display:flex;gap:8px;flex-wrap:wrap" id="share-themes">
-      <div class="sc-theme" data-st="exec" title="Executive Black" style="background:#0f0e0c"><span style="background:#d2a64a"></span></div>
-      <div class="sc-theme" data-st="ocean" title="Deep Ocean" style="background:#10161d"><span style="background:#5aa7da"></span></div>
-      <div class="sc-theme" data-st="burgundy" title="Burgundy Elegance" style="background:#170d12"><span style="background:#d4af37"></span></div>
-      <div class="sc-theme" data-st="forest" title="Forest Midnight" style="background:#0c1610"><span style="background:#c19a6b"></span></div>
-      <div class="sc-theme" data-st="charcoal" title="Charcoal Neutral" style="background:#191919"><span style="background:#e8e8e8"></span></div>
-    </div>
-  </div>
-  <!-- Color palette -->
-  <div style="margin-bottom:14px">
-    <div style="font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:8px">Color del marco</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap" id="share-palette">
-      <div class="sc-swatch" data-color="auto"    style="background:linear-gradient(135deg,#00e5a0,#ff4d6a)" title="Auto (según resultado)"></div>
-      <div class="sc-swatch" data-color="#00e5a0" style="background:#00e5a0" title="Teal"></div>
-      <div class="sc-swatch" data-color="#ff4d6a" style="background:#ff4d6a" title="Rojo"></div>
-      <div class="sc-swatch" data-color="#d2a64a" style="background:#d2a64a" title="Bronce"></div>
-      <div class="sc-swatch" data-color="#d4af37" style="background:#d4af37" title="Dorado"></div>
-      <div class="sc-swatch" data-color="#5aa7da" style="background:#5aa7da" title="Azul"></div>
-      <div class="sc-swatch" data-color="#a991d4" style="background:#a991d4" title="Púrpura"></div>
-      <div class="sc-swatch" data-color="#c19a6b" style="background:#c19a6b" title="Cobre"></div>
-      <div class="sc-swatch" data-color="#ff7840" style="background:#ff7840" title="Naranja"></div>
-      <div class="sc-swatch" data-color="#e8ecf4" style="background:#e8ecf4" title="Blanco/Plata"></div>
+      <div class="sc-theme" data-st="auto" title="Auto (tema de la app · verde/rojo según resultado)" style="background:#121212"><span style="background:linear-gradient(90deg,#00e5a0,#ff4d6a)"></span></div>
+      <div class="sc-theme" data-st="exec" title="Executive Black · Bronce" style="background:#0f0e0c"><span style="background:#d2a64a"></span></div>
+      <div class="sc-theme" data-st="ocean" title="Deep Ocean · Azul" style="background:#10161d"><span style="background:#5aa7da"></span></div>
+      <div class="sc-theme" data-st="burgundy" title="Burgundy Elegance · Dorado" style="background:#170d12"><span style="background:#d4af37"></span></div>
+      <div class="sc-theme" data-st="forest" title="Forest Midnight · Cobre" style="background:#0c1610"><span style="background:#c19a6b"></span></div>
+      <div class="sc-theme" data-st="charcoal" title="Charcoal Neutral · Marfil" style="background:#191919"><span style="background:#e8e8e8"></span></div>
     </div>
   </div>
   <div style="display:flex;gap:8px;justify-content:flex-end">
@@ -2854,38 +2836,25 @@ function handleLogoUpload(e){
 // ═══════════════════════════════════════════════════
 // SHARE CARD (Canvas)
 // ═══════════════════════════════════════════════════
-let _shareAccent='auto';
 const _SHARE_THEMES={
-  exec:{bg:'#0f0e0c'},
-  ocean:{bg:'#10161d'},
-  burgundy:{bg:'#170d12'},
-  forest:{bg:'#0c1610'},
-  charcoal:{bg:'#191919'}
+  exec:{bg:'#0f0e0c',ac:'#d2a64a'},
+  ocean:{bg:'#10161d',ac:'#5aa7da'},
+  burgundy:{bg:'#170d12',ac:'#d4af37'},
+  forest:{bg:'#0c1610',ac:'#c19a6b'},
+  charcoal:{bg:'#191919',ac:'#e8e8e8'}
 };
-let _shareTheme='exec';
+let _shareTheme='auto';
 function _appShareTheme(){
   const t=DB.theme;
   return _SHARE_THEMES[t]?t:'exec';
 }
 function openShareCard(id){
   const t=DB.trades.find(x=>x.id===id);if(!t)return;
-  _shareAccent='auto';
-  _shareTheme=_appShareTheme();
+  _shareTheme='auto';
   document.getElementById('shareModal').classList.add('open');
   document.getElementById('detailModal').classList.remove('open');
-  // Reset palette selection to "auto"
-  document.querySelectorAll('.sc-swatch').forEach(s=>{s.classList.toggle('active',s.dataset.color==='auto');});
-  // Card style follows app theme by default
-  document.querySelectorAll('.sc-theme').forEach(s=>{s.classList.toggle('active',s.dataset.st===_shareTheme);});
-  // Wire palette clicks
-  document.querySelectorAll('.sc-swatch').forEach(s=>{
-    s.onclick=()=>{
-      _shareAccent=s.dataset.color;
-      document.querySelectorAll('.sc-swatch').forEach(x=>x.classList.remove('active'));
-      s.classList.add('active');
-      document.fonts.ready.then(()=>_drawShareCard(t));
-    };
-  });
+  // Reset selection to "auto"
+  document.querySelectorAll('.sc-theme').forEach(s=>{s.classList.toggle('active',s.dataset.st==='auto');});
   // Wire card-style clicks
   document.querySelectorAll('.sc-theme').forEach(s=>{
     s.onclick=()=>{
@@ -2943,10 +2912,9 @@ function _drawShareCard(t){
   ctx.scale(S,S);
   const isWin=(t.pnl||0)>=0;
   const qrCanvas=_makeQRCanvas('https://www.youtube.com/@Arzoxs',130);
-  const acOverride=(_shareAccent&&_shareAccent!=='auto')?_shareAccent:null;
 
   const bgImg=new Image();
-  bgImg.onload=()=>_drawBitunixCard(ctx,t,W,H,bgImg,qrCanvas,isWin,acOverride);
+  bgImg.onload=()=>_drawBitunixCard(ctx,t,W,H,bgImg,qrCanvas,isWin);
   bgImg.src=_BULL_B64;
 }
 
@@ -2967,10 +2935,12 @@ function _circleAvatar(ctx,img,cx,cy,r,borderColor,borderW){
   if(borderColor){ctx.strokeStyle=borderColor;ctx.lineWidth=borderW||1.5;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();}
 }
 
-function _drawBitunixCard(ctx,t,W,H,bgImg,qrImg,isWin,acOverride){
-  const th=_SHARE_THEMES[_shareTheme]||_SHARE_THEMES.exec;
+function _drawBitunixCard(ctx,t,W,H,bgImg,qrImg,isWin){
+  // Unified style: "auto" = app theme bg + win/loss accent; otherwise the palette defines both
+  const isAuto=_shareTheme==='auto';
+  const th=isAuto?_SHARE_THEMES[_appShareTheme()]:(_SHARE_THEMES[_shareTheme]||_SHARE_THEMES.exec);
   const BG=th.bg;
-  const ac=acOverride||(isWin?'#00e5a0':'#ff4d6a');
+  const ac=isAuto?(isWin?'#00e5a0':'#ff4d6a'):th.ac;
   function hexToRgb(h){const r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);return r+','+g+','+b;}
   const acRgb=hexToRgb(ac);
   const bgRgb=hexToRgb(BG);
