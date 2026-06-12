@@ -1,5 +1,5 @@
-Versión 1.1.0 — Rediseño Executive.
+Versión 1.2.0 — Estilos de la App.
 
-Nueva identidad visual premium: fondo casi negro con acento bronce institucional, líneas finas en lugar de cajas, tipografía refinada (Inter + JetBrains Mono), transiciones rápidas y curva de capital en dorado. Solo dark mode.
+Nuevo selector de estilos (icono de paleta en la barra superior) con 5 temas premium: Executive Black, Deep Ocean, Burgundy Elegance, Forest Midnight y Charcoal Neutral. El cambio se aplica al instante, los gráficos se adaptan al tema y tu elección queda guardada.
 
 Toda la funcionalidad se mantiene al 100% y tus datos se conservan al actualizar.
