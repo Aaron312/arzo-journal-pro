@@ -1,5 +1,5 @@
-Versión 1.2.0 — Estilos de la App.
+Versión 1.3.0 — Estilos en la Share Card.
 
-Nuevo selector de estilos (icono de paleta en la barra superior) con 5 temas premium: Executive Black, Deep Ocean, Burgundy Elegance, Forest Midnight y Charcoal Neutral. El cambio se aplica al instante, los gráficos se adaptan al tema y tu elección queda guardada.
+La Share Card ahora tiene los 5 estilos de la app (Executive Black, Deep Ocean, Burgundy Elegance, Forest Midnight y Charcoal Neutral): nuevo selector "Estilo de la tarjeta" en el modal de compartir, que por defecto sigue el tema activo de la app. Los colores del marco se refinaron con los acentos de las paletas (bronce, dorado, azul, púrpura, cobre).
 
 Toda la funcionalidad se mantiene al 100% y tus datos se conservan al actualizar.
